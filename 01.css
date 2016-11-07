@@ -1,0 +1,297 @@
+/*
+伪元素 ：用于向某些选择器 设置特殊效果
+伪元素如果没有设置“content”属性，伪元素是无用的
+eg
+1. first-line
+注释："first-line" 伪元素只能用于块级元素。
+注释：下面的属性可应用于 "first-line" 伪元素：
+font
+color
+background
+word-spacing
+letter-spacing
+text-decoration
+vertical-align
+text-transform
+line-height
+clear
+
+2.first-letter  伪元素用于向文本的首字母设置特殊样式
+  注释："first-letter" 伪元素只能用于块级元素。
+注释：下面的属性可应用于 "first-letter" 伪元素：
+font
+color
+background
+margin
+padding
+border
+text-decoration
+vertical-align (仅当 float 为 none 时)
+text-transform
+line-height
+float
+clear
+
+3.:before伪元素  可以在元素的内容前面添加新的内容
+4. :after伪元素  可以在元素的内容后面添加新的内容
+
+*/
+
+/*
+ 一.相对定位：
+             如果对一个元素进行相对定位，它将出现在它所在的位置上。
+             然后，可以通过设置垂直或水平位置，让这个元素“相对于”
+              它的起点进行移动
+              eg
+              #box_relative {
+               position: relative;
+               left: 30px; //右移
+               top: 20px;  //左移
+}
+       注意：在使用相对定位时，无论是否进行移动，元素仍然占据原来的空间。因此，移动元素会导致它覆盖其它框
+ 二.绝对定位
+     绝对定位使元素的位置与文档流无关，因此不占据空间。这一点与相对定位不同，
+     相对定位实际上被看作普通流定位模型的一部分，
+     因为元素的位置相对于它在普通流中的位置。
+
+     普通流中其它元素的布局就像绝对定位的元素不存在一样：
+     eg：
+        #box_relative {
+          position: absolute;
+          left: 30px;
+          top: 20px;
+}
+
+  */
+
+*{
+    margin:0px;
+    padding: 0px;
+}
+body{
+    font-family: "microsoft yahei";
+    background: #dedede;
+    font-size: small;
+}
+
+/*header*/
+header{
+
+    height:65px;
+    color: #444;
+    background-color:black;
+}
+#logo{  /*设置浮动  在标准流中删除logo  其他块状元素顶上 包围logo */
+    width:120px;
+    float: left;
+    margin-left: 40px;
+    margin-top:10px;
+
+}
+ #logo>img{  /*父类的下一级元素*/
+    width:100px;
+}
+ /*设置列表链接如何如任务显示*/
+.ulList{
+        float:right;
+}.ulList>ul{
+        list-style-type: none;
+ }
+ .ulList>ul>li{/*列表是块级元素  使用display属性+line-height 来设置 使其像内联元素一样显示*/
+      display: inline;
+      line-height: 60px;
+      margin-right: 12px ;
+      color: white;
+      cursor: pointer;
+      transition: 3s all;
+      font-size: small;
+ }
+
+
+ /*链接样式*/
+a:link{
+    color:white ;
+    text-decoration: none;
+}
+a:visited {
+    color:white;
+    text-decoration: none;
+}
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
+
+/*div1*/
+#div1{
+    background-color:white;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+h2{
+    margin-top: 10px;
+
+}
+h4{
+    font-weight: lighter ;
+    margin:10px 0px 10px 0px;
+}
+span{
+      display: block;
+      margin-bottom: 10px;
+  }
+p{
+    text-indent:30px;
+
+}
+#div1>p>a{
+    color:blue;
+}
+
+/*设置div2样式*/
+#div2
+{
+    background-color: white;
+    padding:20px;
+    margin-bottom: 20px;
+
+}
+#div2>p>a{
+    color:blue;
+}
+#div2-ul{
+    position: relative;
+    left:30px;
+    list-style-type: none;
+}
+/*设置div3样式*/
+#div3{
+    background-color: white;
+    padding:20px;
+    margin-bottom: 20px;
+}
+.img{
+    border:1px solid black;
+    margin: 10px  auto ; /*带宽度的块状元素的居中原理*/
+    padding:10px;
+    width:309px;        /*设置一个宽度使他的 不会留太多的空白区域*/
+}
+.p{
+    text-align: center;
+    margin:0px auto;
+    padding:10px;
+}
+/*设置div4样式*/
+#div4{
+    background-color: white;
+    padding:20px;
+    margin-bottom: 20px;
+}
+ol{
+    position: relative;
+    left:30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+/*css中为表格添加样式
+        border-collapse: 让表格显示为单线条边框
+        width height     设置表格的宽度和高度（100% 充满整个屏幕）
+        text-align       设置表格中元素水平对齐
+        vertical-align   设置表格中的元素在垂直方向上对齐
+        padding          设置内容与边框的距离
+        color            设置文本颜色
+        background-color 设置背景颜色
+*/
+table{
+    border-collapse:collapse;
+    width:100%;
+    font-size: small;
+}
+table th{
+     background-color: black;
+     text-align: left;
+     color:white;
+     padding:0px;
+}
+table tr td a{
+    color:blue;
+}
+#all{
+    background-color: gray;
+}
+
+/*设置div5样式*/
+#div5{
+    background-color: white;
+    padding:20px;
+    margin-bottom: 20px;
+    font-size: small;
+}
+.div5-h4{
+    display:inline;
+    font-weight:bold;
+}
+#text{
+    position: relative;
+    left:250px;
+    margin:20px;
+}
+#text p{
+    color:gray;
+}
+#password1{
+     position: relative;
+     left:296px;
+
+}
+#password2{
+      position: relative;
+      left:270px;
+      margin-bottom: 30px;
+}
+#password2 p{
+    color: gray;
+}
+#radio{
+    position: relative;
+    left:316px;
+    margin-bottom: 10px;
+}
+#select{
+    position: relative;
+    left:323px ;
+    margin-bottom:10px;
+}
+#checkbox{
+    position: relative;
+    left:323px;
+    margin-bottom: 10px;
+}
+#textarea{
+    position: relative;
+    left:300px ;
+}
+#submit{
+    display: block;
+    -webkit-border-radius:15px ;
+    -moz-border-radius:15px;
+    border-radius:15px;/*建立圆角边框*/
+    box-shadow: 10px 10px 5px #888888;/*设置盒子的阴影 水平+竖直+模糊+颜色  模糊+颜色可选*/
+    width:100%;
+    height:70px;
+    background-color: deepskyblue;
+    text-align: center;
+    margin-bottom: 0px;
+}
+footer{
+     height:70px;
+    background-color:gray;
+    text-align: center;
+    color: white;
+    line-height: 70px;
+
+}
